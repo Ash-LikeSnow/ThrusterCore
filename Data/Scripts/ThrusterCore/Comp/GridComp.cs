@@ -23,6 +23,9 @@ using VRageMath;
 
 namespace ThrusterCore
 {
+    /// <summary>
+    /// Holds all grid specific data
+    /// </summary>
     internal class GridComp
     {
         private IMyCubeGrid _grid;

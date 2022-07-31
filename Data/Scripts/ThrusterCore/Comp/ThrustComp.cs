@@ -24,6 +24,9 @@ using VRageMath;
 
 namespace ThrusterCore
 {
+    /// <summary>
+    /// Holds all thrust block data
+    /// </summary>
     internal class ThrustComp
     {
         private readonly Session _session;

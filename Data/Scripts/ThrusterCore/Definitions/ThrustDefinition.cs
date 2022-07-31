@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ThrusterCore
 {
+    /// <summary>
+    /// Stored values from cubeblock definitions plus precalculated constants
+    /// </summary>
     internal class ThrustDefinition
     {
         internal readonly float ForceMagnitude;

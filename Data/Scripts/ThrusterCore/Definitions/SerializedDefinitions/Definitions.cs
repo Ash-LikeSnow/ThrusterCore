@@ -8,32 +8,9 @@ using VRage.ObjectBuilders;
 
 namespace ThrusterCore
 {
-	public class Definitions
-    {
-		public Definition[] CubeBlocks;
-		public Component[] Components;
-		public PhysicalItem[] PhysicalItems;
-		public Definition[] Definition;
-	}
-
-	
-	public class PhysicalItem : Definition
-	{
-
-	}
-	
-	public class Component : Definition
-	{
-
-	}
-	
-	public class Definition
-	{
-		public SerializableDefinitionId Id;
-		public ThrustValues ThrustValues;
-
-	}
-
+	/// <summary>
+	/// Fields which will be deserialised from xml
+	/// </summary>
 	public class ThrustValues
 	{
         public float ForceMagnitude = 1f;
@@ -42,5 +19,32 @@ namespace ThrusterCore
         public float MinPowerConsumption = 0f;
     }
 
+	/// <summary>
+	/// Skeleton classes for deserialising from xml
+	/// </summary>
+	public class Definitions
+	{
+		public Definition[] CubeBlocks;
+		public Component[] Components;
+		public PhysicalItem[] PhysicalItems;
+		public Definition[] Definition;
+	}
 
+
+	public class PhysicalItem : Definition
+	{
+
+	}
+
+	public class Component : Definition
+	{
+
+	}
+
+	public class Definition
+	{
+		public SerializableDefinitionId Id;
+		public ThrustValues ThrustValues;
+
+	}
 }
