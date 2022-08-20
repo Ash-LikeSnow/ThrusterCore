@@ -55,7 +55,8 @@ namespace ThrusterCore
 
         public override void BeforeStart()
         {
-
+            MyVisualScriptLogicProvider.PlayerDisconnected += PlayerDisconnected;
+            MyVisualScriptLogicProvider.PlayerRespawnRequest += PlayerConnected;
         }
 
         public override void UpdateBeforeSimulation()
@@ -72,7 +73,14 @@ namespace ThrusterCore
             Tick120 = Tick % 120 == 0;
             Tick600 = Tick % 600 == 0;
 
-            CompLoop();
+            try
+            {
+                CompLoop();
+            }
+            catch (Exception ex)
+            {
+                Logs.WriteLine($"Exception in CompLoop: {ex}");
+            }
 
             if (!_startBlocks.IsEmpty || !_startGrids.IsEmpty)
                 StartComps();
@@ -81,6 +89,9 @@ namespace ThrusterCore
         protected override void UnloadData()
         {
             MyEntities.OnEntityCreate -= OnEntityCreate;
+
+            MyVisualScriptLogicProvider.PlayerDisconnected -= PlayerDisconnected;
+            MyVisualScriptLogicProvider.PlayerRespawnRequest -= PlayerConnected;
 
             Logs.Close();
             Clean();
