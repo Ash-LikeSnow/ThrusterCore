@@ -116,6 +116,15 @@ namespace ThrusterCore
             }
         }
 
+        private void InitPlayers()
+        {
+            List<IMyPlayer> players = new List<IMyPlayer>();
+            MyAPIGateway.Multiplayer.Players.GetPlayers(players);
+
+            for (int i = 0; i < players.Count; i++)
+                PlayerConnected(players[i].IdentityId);
+        }
+
 
 	}
 }

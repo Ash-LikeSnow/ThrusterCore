@@ -183,6 +183,7 @@ namespace ThrusterCore
             Controllers.Clear();
             DirectionMap.Clear();
         }
+
     }
 
     internal class DirectionData

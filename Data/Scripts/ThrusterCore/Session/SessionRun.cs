@@ -39,6 +39,8 @@ namespace ThrusterCore
         internal bool IsClient;
         internal bool IsDedicated;
 
+        private bool FirstRun = true;
+
         public override void LoadData()
         {
             IsServer = MyAPIGateway.Multiplayer.MultiplayerActive && MyAPIGateway.Session.IsServer;
@@ -84,6 +86,13 @@ namespace ThrusterCore
 
             if (!_startBlocks.IsEmpty || !_startGrids.IsEmpty)
                 StartComps();
+
+            if (FirstRun)
+            {
+                if (!IsDedicated)
+                    InitPlayers();
+                FirstRun = false;
+            }
         }
 
         protected override void UnloadData()
